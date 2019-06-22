@@ -21,4 +21,4 @@ heat equation:
 - Variational 
 - Weak formula
 - Garlekin formula
-- Finite dimensional space approximates infinite dimensional space <img src="https://latex.codecogs.com/gif.latex?-\nabla&space;u&space;=&space;f" title="-\nabla u = f" />
+- Finite dimensional space approximates infinite dimensional space 
