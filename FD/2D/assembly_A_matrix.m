@@ -18,8 +18,8 @@ function [ A ] = assembly_A_matrix( N_x, N_y, h_x, h_y, index_x, index_y, Mesh )
             A(index, index) = B;
             
             Pb = zeros(2, index_y);
-            Pb(1,:) = (index_x-1) * (N_y-1) + 1 : (index_x-1) * (N_y-1) + 4;
-            Pb(2,:) = (index_x) * (N_y-1) + 1 : (index_x) * (N_y-1) + 4;
+            Pb(1,:) = (index_x-1) * (N_y-1) + 1 : (index_x-1) * (N_y-1) + index_y;
+            Pb(2,:) = (index_x) * (N_y-1) + 1 : (index_x) * (N_y-1) + index_y;
             
             n = size(Pb, 2);
             m = -1/(h_x^2);
@@ -27,8 +27,6 @@ function [ A ] = assembly_A_matrix( N_x, N_y, h_x, h_y, index_x, index_y, Mesh )
                 A(Pb(1,i), Pb(2,i)) = m;
                 A(Pb(2,i), Pb(1,i)) = m;
             end
-            Pb
-            A
         end
 
 end

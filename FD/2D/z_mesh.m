@@ -1,6 +1,6 @@
 function [ ] = z_mesh( bx, by, N_x, N_y, X, Y, XX, YY, Mesh )
 
-        figure(1)
+        figure(Mesh)
         if Mesh == 2
             N_X = N_x + 2;
             N_Y = N_y + 2;
