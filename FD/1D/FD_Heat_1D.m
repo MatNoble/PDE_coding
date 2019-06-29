@@ -29,13 +29,17 @@ function [Nu, Au, k] = FD_Heat_1D(u, f, xx, t, N_b, N_t, p_x, p_t, class)
                 b = zeros(N_b, 1);
                 b(1) = Nu(i,1);
                 b(end) = Nu(i,end);
-                b(2:N_b-1) = (detalx(1)^2)*feval(f, t(i), x(2:N_b-1))' + (1/k)*Nu(i-1,2:N_b-1)';
+                b(2:N_b-1) = (detalx(1)^2)*feval(f, t(i), x(2:end-1))' + (1/k)*Nu(i-1,2:end-1)';
                 Nu(i,:) = (A \ b)';
             end
         elseif class == 3 % C_N
             for i = 2:N_t
                 b1 = zeros(N_b, 1);
-                b1(2:N_b-1) = detalt(1)*(feval(f, t(i-1), x(2:N_b-1))' + feval(f, t(i), x(2:N_b-1))');
+                k1 = feval(f, t(i-1), x(2:end-1));
+                k2 = feval(f, t(i-1)+detalt(1)/2, x(2:end-1));
+                k3 = feval(f, t(i-1)+detalt(1)/2, x(2:end-1));
+                k4 = feval(f, t(i), x(2:end-1));
+                b1(2:N_b-1) = 2*detalt(1)*((k1+k4+2*(k2+k3))'/6);
                 b2 = A(:,:,2) * Nu(i-1,:)';
                 b3 = zeros(N_b, 1);
                 b3(1) = Nu(i,1);
