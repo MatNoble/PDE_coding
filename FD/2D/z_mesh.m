@@ -25,16 +25,16 @@ function [ ] = z_mesh( bx, by, N_x, N_y, X, Y, XX, YY, Mesh )
             Y1(N_y/2+1:N_y,:) = Y(N_y/2:N_y-1,:);
             Y1(:,N_x/2+1:N_x) = Y1(:,N_x/2:N_x-1);
 
-            plot(X1(1:N_y/2-1,:),Y1(1:N_y/2-1,:),'ro-','linewidth',1.5,'MarkerSize',12),hold on
-            plot(X1(1:N_y/2-1,:)',Y1(1:N_y/2-1,:)','ro-','linewidth',1.5,'MarkerSize',12),hold on
-            plot(X1(N_y/2-1:N_y,1:N_x/2-1),Y1(N_y/2-1:N_y,1:N_x/2-1),'ro-','linewidth',1.5,'MarkerSize',12),hold on
-            plot(X1(N_y/2-1:N_y,1:N_x/2-1)',Y1(N_y/2-1:N_y,1:N_x/2-1)','ro-','linewidth',1.5,'MarkerSize',12),hold off
+            plot(X1(1:N_y/2-1,:),Y1(1:N_y/2-1,:),'rx-','linewidth',1.5,'MarkerSize',10),hold on
+            plot(X1(1:N_y/2-1,:)',Y1(1:N_y/2-1,:)','rx-','linewidth',1.5,'MarkerSize',10),hold on
+            plot(X1(N_y/2-1:N_y,1:N_x/2-1),Y1(N_y/2-1:N_y,1:N_x/2-1),'rx-','linewidth',1.5,'MarkerSize',10),hold on
+            plot(X1(N_y/2-1:N_y,1:N_x/2-1)',Y1(N_y/2-1:N_y,1:N_x/2-1)','rx-','linewidth',1.5,'MarkerSize',10),hold off
             title('L Mesh')
         elseif Mesh == 1
             plot(XX,YY,'k-'),hold on
             plot(XX',YY','k-'),hold on
-            plot(X,Y,'ro-','linewidth',1.5,'MarkerSize',12),hold on
-            plot(X',Y','ro-','linewidth',1.5,'MarkerSize',12),hold off
+            plot(X,Y,'rx-','linewidth',1.5,'MarkerSize',10),hold on
+            plot(X',Y','rx-','linewidth',1.5,'MarkerSize',10),hold off
             title('Mesh')
         end
         set(gca,'FontSize',20);
