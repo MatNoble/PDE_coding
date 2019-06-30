@@ -22,5 +22,3 @@ heat equation:
 - Weak formula
 - Garlekin formula
 - Finite dimensional space approximates infinite dimensional space 
-
-git
