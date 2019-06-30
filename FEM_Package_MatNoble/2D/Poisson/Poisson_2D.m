@@ -1,7 +1,7 @@
 % One-dimensional Poisson equation
-function [N_s, error_max] = Poisson_2D(left, right, top, bottom, u, u_xy, c, f, nx, ny, p, basis_type, Boundary_type)
+function [N_s] = Poisson_2D(left, right, top, bottom, u, u_xy, c, f, nx, ny, p, basis_type, Boundary_type)
 
-% x1, x2 £º left and right endpoints
+% x1, x2 ï¿½ï¿½ left and right endpoints
 % number of mesh elements
 % p : Degree of distortion
 % basis_type : 
@@ -110,7 +110,12 @@ function [N_s, error_max] = Poisson_2D(left, right, top, bottom, u, u_xy, c, f, 
     A_s = u(Pb(1,:), Pb(2,:))';
     % error_max
     error = abs(N_s - A_s);
-    error_max = max(error);
+    error_max = norm((N_s - A_s), inf);
+    fprintf('Error_Max_norm: %g\n',error_max)
+    Ones = ones(1, N_mn);
+    s = 1/N_m;
+    Error_L2 = sqrt(Ones * (s*(N_s - A_s).^2));
+    fprintf('Error_L2_norm: %g',Error_L2)
 
     % drawing
     figure(2)
