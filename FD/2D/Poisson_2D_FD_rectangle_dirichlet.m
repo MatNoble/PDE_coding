@@ -40,11 +40,11 @@ function [ N_u ] = Poisson_2D_FD_rectangle_dirichlet( bx, by, N_x, N_y, Au, f, M
         A_u = Au(P(1,:), P(2,:))';
         
         % error 
-        Error_Max = norm((N_u-A_u), inf);
-        fprintf('Error_Max_norm: %g\n',Error_Max)
-        Ones = ones(1, N_m);
-        Error_L2 = sqrt(Ones * (s*(N_u-A_u).^2));
-        fprintf('Error_L2_norm: %g',Error_L2)
+%         Error_Max = norm((N_u-A_u), inf);
+%         fprintf('Error_Max_norm: %g\n',Error_Max)
+%         Ones = ones(1, N_m);
+%         Error_L2 = sqrt(Ones * (s*(N_u-A_u).^2));
+%         fprintf('Error_L2_norm: %g',Error_L2)
         
         % error mesh
         error_mesh( Au, N_m, N_u, A_u, N_x, N_y, XX, YY, index_y, Mesh)

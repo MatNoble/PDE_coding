@@ -1,7 +1,7 @@
 % One-dimensional Poisson equation
 function [N_s] = Poisson_2D(left, right, top, bottom, u, u_xy, c, f, nx, ny, p, basis_type, Boundary_type)
 
-% x1, x2 �� left and right endpoints
+% x1, x2  left and right endpoints
 % number of mesh elements
 % p : Degree of distortion
 % basis_type : 
