@@ -30,22 +30,12 @@ function [] = error_mesh( Au, N_m, N_u, A_u, N_x, N_y, XX, YY, index_y, Mesh)
             
             subplot(2,2,2)
             U1 = Au(XX1,YY1);
-            k = 1;
-            for j = 2:N_x/2
-                for i = 2:N_y
-                    U1(i,j) = N_u(k);
-                    k = k+1;
-                end
-            end
+            U1(2:N_y,2:N_x/2) = reshape(N_u(1:(N_y-1)*(N_x/2-1)), N_y-1, N_x/2-1);
+            k = (N_y-1)*(N_x/2-1) + 1;
             U1(2:N_y/2,end) = N_u(k:k+index_y-1);
 
             U2 = Au(XX2,YY2);
-            for j = 1:N_x/2
-                for i = 2:N_y/2
-                    U2(i,j) = N_u(k);
-                    k = k+1;
-                end
-            end
+            U2(2:N_y/2,1:N_x/2) = reshape(N_u(k:end), N_y/2-1, N_x/2);
             surf(XX1, YY1, U1), hold on
             surf(XX2, YY2, U2), hold off
             view([119.5575 51.6442])
@@ -61,4 +51,3 @@ function [] = error_mesh( Au, N_m, N_u, A_u, N_x, N_y, XX, YY, index_y, Mesh)
         ylabel('$$ u $$','Interpreter','latex','fontsize',15)
         
 end
-
