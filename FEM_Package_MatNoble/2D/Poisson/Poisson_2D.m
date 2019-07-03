@@ -36,20 +36,8 @@ function [N_s] = Poisson_2D(left, right, top, bottom, u, u_xy, c, f, nx, ny, p, 
     Tb_trial = Tb;
     Tb_test = Tb; 
     
-    % drawing
-    figure(1)  
-    plot(X,Y,'k-','linewidth',2),hold on,     plot(X',Y','k-','linewidth',2),hold on
-    for i = 1:nx*ny
-        j = 2*i - 1;
-        global_index1 = T(2, j);
-        global_index2 = T(3, j);
-        x1 = P(1, global_index1); y1 = P(2, global_index1);
-        x2 = P(1, global_index2); y2 = P(2, global_index2);
-        line([x1, x2],[y1, y2],'linewidth',2,'color','k'), hold on
-    end
-    hold off
-    axis equal
-    axis off
+    % drawing mesh
+    triangle_mesh( nx, ny, P, T, X, Y )
        
     % N_b : number of the FE basis(nodes)
     if basis_type == 201 % linear
@@ -109,54 +97,13 @@ function [N_s] = Poisson_2D(left, right, top, bottom, u, u_xy, c, f, nx, ny, p, 
     % Analytical solution
     A_s = u(Pb(1,:), Pb(2,:))';
     % error_max
-    error = abs(N_s - A_s);
     error_max = norm((N_s - A_s), inf);
     fprintf('Error_Max_norm: %g\n',error_max)
-    Ones = ones(1, N_mn);
+    Ones = ones(1, N_b);
     s = 1/N_m;
     Error_L2 = sqrt(Ones * (s*(N_s - A_s).^2));
     fprintf('Error_L2_norm: %g',Error_L2)
 
-    % drawing
-    figure(2)
-    if basis_type == 202
-        nx = 2*nx;
-        ny = 2*ny;
-        X = X1;
-        Y = Y1;
-    end
-    AA_s = zeros(size(X));
-    NN_s = zeros(size(X));
-    Error = zeros(size(X));
-    for i = 1:nx+1
-        a = (i-1)*(ny+1)+1;
-        b = i*(ny+1);
-        NN_s(:,i) = N_s(a:b);
-    end
-    for i = 1:nx+1
-        a = (i-1)*(ny+1)+1;
-        b = i*(ny+1);
-        AA_s(:,i) = A_s(a:b);
-    end
-    for i = 1:nx+1
-        a = (i-1)*(ny+1)+1;
-        b = i*(ny+1);
-        Error(:,i) = error(a:b);
-    end
-    subplot(2,2,1)
-    surfc(X, Y, NN_s)
-    xlabel('x')
-    ylabel('y')
-    zlabel('Numerical solution')
-    subplot(2,2,2)
-    surfc(X, Y, AA_s)
-    xlabel('x')
-    ylabel('y')
-    zlabel('Analytical solution')
-    subplot(2,2,[3, 4])
-    surfc(X, Y, Error)
-    xlabel('x')
-    ylabel('y')
-    zlabel('Absolute error')
+    error_mesh(nx, ny, N_b, X, Y, X1, Y1, N_s, A_s, basis_type)
     
 end
