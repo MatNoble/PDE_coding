@@ -10,14 +10,13 @@ function [N_s] = Poisson_2D(left, right, top, bottom, u, u_xy, c, f, nx, ny, p, 
 % Gauss_type : 2, 4, 8
 
     % mesh
-    px = p;
-    py = p;
+    px = p;    py = p;
     [ X, Y ] = RandAxis(left, right, top, bottom, nx, ny, px, py);
   
     % N : number of mesh elements
-    N_m = 2*nx*ny;
+    N = 2*nx*ny;
     % N_m : number of mesh nodes
-    N_mn = (nx+1)*(ny+1);
+    N_m = (nx+1)*(ny+1);
     
     % generate matrix P, T, Pb, Tb
     % P & T : mesh nodes (coordinate & global index)
@@ -30,7 +29,7 @@ function [N_s] = Poisson_2D(left, right, top, bottom, u, u_xy, c, f, nx, ny, p, 
         X1 = X;
         Y1 = Y;
     end
-    [P, T, Pb, Tb] = generate_PT_2D(nx, ny, N_m, N_mn, X, Y, X1, Y1, basis_type);
+    [P, T, Pb, Tb] = generate_PT_2D(nx, ny, N, N_m, X, Y, X1, Y1, basis_type);
     Pb_trial = Pb;
     % Pb_test = P;
     Tb_trial = Tb;
@@ -66,7 +65,7 @@ function [N_s] = Poisson_2D(left, right, top, bottom, u, u_xy, c, f, nx, ny, p, 
     
     [Gauss_coefficient_reference_triangle,Gauss_point_reference_triangle] = generate_Gauss_reference_triangle(9);
     
-    number_of_elements = N_m;
+    number_of_elements = N;
     % assemble A
     A1 = assemble_matrix_2D(c, matrix_size, P, T, Tb_trial, Tb_test, number_of_elements,...
                            number_of_local_basis_functions_trial, number_of_local_basis_functions_test,...
@@ -100,7 +99,7 @@ function [N_s] = Poisson_2D(left, right, top, bottom, u, u_xy, c, f, nx, ny, p, 
     error_max = norm((N_s - A_s), inf);
     fprintf('Error_Max_norm: %g\n',error_max)
     Ones = ones(1, N_b);
-    s = 1/N_m;
+    s = 1/N;
     Error_L2 = sqrt(Ones * (s*(N_s - A_s).^2));
     fprintf('Error_L2_norm: %g',Error_L2)
 

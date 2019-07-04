@@ -1,4 +1,4 @@
-function [ X, Y ] = RandAxis(left, right, top, bottom, nx,ny,px,py)
+function [ X, Y ] = RandAxis(left, right, top, bottom, nx, ny, px, py)
 %% 释义 
 %   nx：x方向单元个数
 %   ny：y方向单元个数
@@ -25,6 +25,7 @@ function [ X, Y ] = RandAxis(left, right, top, bottom, nx,ny,px,py)
     for j=1:n2x
         Y(1,j)=0;Y(ny+1,j)=1;
     end
+    % mapping
     proportion1 = right - left;
     X = proportion1 * X + left;
     proportion2 = top - bottom;
