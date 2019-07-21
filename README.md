@@ -1,19 +1,21 @@
 ## Using FDM or FEM solve poisson and heat equations in 1D and 2D
 ### Basic equations
 poisson equation: 
-<center>
-<img src="https://latex.codecogs.com/gif.latex?-\nabla&space;u=f" title="-\nabla u=f" />
-</center>
+
+<div align=center><img src="https://latex.codecogs.com/gif.latex?-\nabla&space;u=f" title="-\nabla u=f"/></div>
+
 heat equation: 
-<center>
-<img src="https://latex.codecogs.com/gif.latex?u_t-\nabla&space;u=f" title="u_t-\nabla u=f" />
-</center>
+
+<div align=center><img src="https://latex.codecogs.com/gif.latex?u_t-\nabla&space;u=f" title="u_t-\nabla u=f"/></div>
 
 ### Basic idea
 #### Finite Difference Methods
 > 
 - Replacing the dervatives by finite differences
-- Taylor series
+- Taylor series  
+
+1D problem
+<div align=center><img src="https://github.com/MatNoble/PDE_coding/blob/master/image/FD.png"/></div>  
 
 #### Finite Element Methods
 > 
