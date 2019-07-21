@@ -1,5 +1,4 @@
-
-function [Nu, Au, k] = FD_Heat_1D(ua, ub, ut, f, xx, t, N_b, N_t, p_x, p_t, class)
+function [Nu, k] = FD_Heat_1D(ua, ub, ut, f, xx, t, N_b, N_t, p_x, p_t, class)
         
         x = RandMesh_1D( xx, N_b, p_x );
         detalx = diff(x);
@@ -14,8 +13,6 @@ function [Nu, Au, k] = FD_Heat_1D(ua, ub, ut, f, xx, t, N_b, N_t, p_x, p_t, clas
         Nu(:, end) = feval(ub, t);
         
         [X, T] = meshgrid(x, t);
-%         Au = feval(u, T, X);
-Au = 0;
         
         if class == 1 % 5 points Forward_Euler
             for i = 2:N_t
@@ -51,16 +48,9 @@ Au = 0;
         end
 
         figure(class)
-%         subplot(2,1,1)
-%         surfc(X, T, Au)
-%         xlabel('X')
-%         ylabel('T')
-%         title('Analysis Solution')
-%         subplot(2,1,2)
         surfc(X, T, Nu)
         xlabel('X')
         ylabel('T')
         title('Numerical Solution')
-        
-        
+                
 end
