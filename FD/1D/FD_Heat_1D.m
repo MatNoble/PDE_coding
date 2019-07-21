@@ -1,5 +1,5 @@
 
-function [Nu, Au, k] = FD_Heat_1D(u, f, xx, t, N_b, N_t, p_x, p_t, class)
+function [Nu, Au, k] = FD_Heat_1D(ua, ub, ut, f, xx, t, N_b, N_t, p_x, p_t, class)
         
         x = RandMesh_1D( xx, N_b, p_x );
         detalx = diff(x);
@@ -9,12 +9,13 @@ function [Nu, Au, k] = FD_Heat_1D(u, f, xx, t, N_b, N_t, p_x, p_t, class)
         A = Matrix( k, N_b, class );
         
         Nu = zeros(N_t, N_b);
-        Nu(1, :) = feval(u, 0, x);
-        Nu(:, 1) = feval(u, t, xx(1));
-        Nu(:, end) = feval(u, t, xx(2));
+        Nu(1, :) = feval(ut, x);
+        Nu(:, 1) = feval(ua, t);
+        Nu(:, end) = feval(ub, t);
         
         [X, T] = meshgrid(x, t);
-        Au = feval(u, T, X);
+%         Au = feval(u, T, X);
+Au = 0;
         
         if class == 1 % 5 points Forward_Euler
             for i = 2:N_t
@@ -50,12 +51,12 @@ function [Nu, Au, k] = FD_Heat_1D(u, f, xx, t, N_b, N_t, p_x, p_t, class)
         end
 
         figure(class)
-        subplot(2,1,1)
-        surfc(X, T, Au)
-        xlabel('X')
-        ylabel('T')
-        title('Analysis Solution')
-        subplot(2,1,2)
+%         subplot(2,1,1)
+%         surfc(X, T, Au)
+%         xlabel('X')
+%         ylabel('T')
+%         title('Analysis Solution')
+%         subplot(2,1,2)
         surfc(X, T, Nu)
         xlabel('X')
         ylabel('T')
