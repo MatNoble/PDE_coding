@@ -1,4 +1,4 @@
-function [ A ] = assembly_A_matrix( N_x, N_y, h_x, h_y, index_x, index_y, Mesh )
+function [ A ] = assembly_A_matrix( N_x, N_y, h_x, h_y, index_x, index_y, junction, Mesh )
 
          if Mesh == 1
             A1 = Matrix_1_2_1( N_x - 1 )/(h_x^2);
@@ -54,23 +54,8 @@ function [ A ] = assembly_A_matrix( N_x, N_y, h_x, h_y, index_x, index_y, Mesh )
             index = size(A,2) + 1 : size(A,2) + size(D,2);
             A(index, index) = D;
             
-            % Junction
-            k = (index_x-1) * (N_y-1);
-            Pb(1,1:index_y) = k + 1 : k + index_y;
-            n1 = (index_x) * (N_y-1);
-            Pb(2,1:index_y) = n1 + 1 : n1 + index_y;
-            
-            n2 = nn*index_y;
-            Pb(1,index_y+1:2*index_y) = n1 - index_y + 1 : n1;
-            Pb(2,index_y+1:2*index_y) = n1 + n2 + 1 : n1 + n2 + index_y;
-            
-            n3 = n2;
-            Pb(1,2*index_y+1:3*index_y) = n1 + n2 - index_y + 1 : n1 + n2;
-            Pb(2,2*index_y+1:3*index_y) = n1 + n2 + n3 + 1 : n1 + n2 + n3 + index_y;
-            
-            Pb(1,3*index_y+1:4*index_y) = n1 + n2 + n3 - index_y + 1 : n1 + n2 + n3;
-            Pb(2,3*index_y+1:4*index_y) = n1 + n2 + n3 + N_y - index_y : n1 + n2 + n3 + N_y - 1;
-            
+            % Junction            
+            Pb = junction(2:3, :);
             n = size(Pb, 2);
             m = -1/(h_x^2);
             for i = 1:n
@@ -80,4 +65,3 @@ function [ A ] = assembly_A_matrix( N_x, N_y, h_x, h_y, index_x, index_y, Mesh )
             
          end
 end
-

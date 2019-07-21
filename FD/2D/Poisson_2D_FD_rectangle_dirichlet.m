@@ -32,9 +32,17 @@ function [ N_u ] = Poisson_2D_FD_rectangle_dirichlet( bx, by, N_x, N_y, Au, f, M
         
         % generate_P_matrix
         P = generate_P_matrix( N_m, x, y, n_x, n_y, index_x, index_y, Mesh );
+        
+        % boundarynodes
+%         boundary = boundary_nodes( N_x, N_y, Mesh )
+        
+        % junction_point
+        if Mesh == 2 || Mesh == 3
+            junction = junction_point( n_x, n_y, index_x, index_y, Mesh);
+        end
 
         % A
-        A = assembly_A_matrix( N_x, N_y, h_x, h_y, index_x, index_y, Mesh );
+        A = assembly_A_matrix( N_x, N_y, h_x, h_y, index_x, index_y, junction, Mesh );
         
         % b
         b = assembly_b_vector( N_m, f, P );
@@ -53,7 +61,7 @@ function [ N_u ] = Poisson_2D_FD_rectangle_dirichlet( bx, by, N_x, N_y, Au, f, M
         Error_L2 = sqrt(Ones * (s*(N_u-A_u).^2));
         fprintf('Error_L2_norm: %g',Error_L2)
         
-%         % error mesh
-        error_mesh( Au, N_m, N_u, A_u, N_x, N_y, XX, YY, index_y, Mesh)
+        % error mesh
+        error_mesh( Au, N_m, N_u, A_u, N_x, N_y, XX, YY, index_y, junction(3,:), Mesh)
               
 end

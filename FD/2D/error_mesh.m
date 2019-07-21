@@ -1,4 +1,4 @@
-function [] = error_mesh( Au, N_m, N_u, A_u, N_x, N_y, XX, YY, index_y, Mesh)
+function [] = error_mesh( Au, N_m, N_u, A_u, N_x, N_y, XX, YY, index_y, junction, Mesh)
     
         figure(Mesh+3)
         if Mesh == 1
@@ -65,8 +65,8 @@ function [] = error_mesh( Au, N_m, N_u, A_u, N_x, N_y, XX, YY, index_y, Mesh)
             n1 = index_y * (N_y-1);
             U1 = Au(XX1,YY1);
             U1(2:end-1,2:end-1) = reshape(N_u(1:n1), N_y-1, N_x/4-1);
-%             k = (N_y-1)*(N_x/2-1) + 1;
-%             U1(2:N_y/2,end) = N_u(k:k+index_y-1);
+            U1(2:index_y+1,end) = N_u(junction(1:index_y));
+            U1(end-index_y:end-1,end) = N_u(junction(index_y+1:2*index_y));
             surf(XX1, YY1, U1), hold on
             
             nn = N_x/2 + 1;
@@ -82,9 +82,9 @@ function [] = error_mesh( Au, N_m, N_u, A_u, N_x, N_y, XX, YY, index_y, Mesh)
             
             n4 = n1;
             U4 = Au(XX4,YY4);
-            U4(2:end-1,2:end-1) = reshape(N_u(n1+n2+n3+1:n1+n2+n3+n4), N_y-1, N_x/4-1)
-%             k = (N_y-1)*(N_x/2-1) + 1;
-%             U1(2:N_y/2,end) = N_u(k:k+index_y-1);
+            U4(2:end-1,2:end-1) = reshape(N_u(n1+n2+n3+1:n1+n2+n3+n4), N_y-1, N_x/4-1);
+            U4(2:index_y+1,1) = N_u(junction(2*index_y + 1:3*index_y));
+            U4(end-index_y:end-1,1) = N_u(junction(3*index_y+1:4*index_y));
             surf(XX4, YY4, U4), hold off
             
             xlabel('$$ x $$','Interpreter','latex','fontsize',15)
