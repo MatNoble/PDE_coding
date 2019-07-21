@@ -14,8 +14,8 @@ heat equation:
 - Replacing the dervatives by finite differences
 - Taylor series  
 
-1D problem
-<div align=center><img width="250" height="250" src="https://github.com/MatNoble/PDE_coding/blob/master/image/FD.png"/></div>  
+1D problem:
+<div align=center><img width="500" height="500" src="https://github.com/MatNoble/PDE_coding/blob/master/image/FD.png"/></div>  
 
 #### Finite Element Methods
 > 
