@@ -15,7 +15,7 @@ heat equation:
 - Taylor series  
 
 1D problem
-<div align=center><img src="https://github.com/MatNoble/PDE_coding/blob/master/image/FD.png"/></div>  
+<div align=center><img width="250" height="250" src="https://github.com/MatNoble/PDE_coding/blob/master/image/FD.png"/></div>  
 
 #### Finite Element Methods
 > 
