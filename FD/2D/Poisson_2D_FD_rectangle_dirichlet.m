@@ -11,8 +11,7 @@ function [ N_u ] = Poisson_2D_FD_rectangle_dirichlet( bx, by, N_x, N_y, Au, f, M
         
         % figure mesh
         z_mesh( bx, by, N_x, N_y, X, Y, XX, YY, Mesh )
-        
-%               
+                     
         % number of unkonw nodes
         n_x = N_x-1;
         n_y = N_y-1;
@@ -36,13 +35,12 @@ function [ N_u ] = Poisson_2D_FD_rectangle_dirichlet( bx, by, N_x, N_y, Au, f, M
 
         % A
         A = assembly_A_matrix( N_x, N_y, h_x, h_y, index_x, index_y, Mesh );
-        full(A)
         
         % b
-        b = assembly_b_vector( N_m, f, P )
+        b = assembly_b_vector( N_m, f, P );
 
         % treat dirichlet boundary conditions
-        b = treat_dirichlet_boundary_conditions( Au, P, b, bx, by, h_x, h_y, Mesh )
+        b = treat_dirichlet_boundary_conditions( Au, P, b, bx, by, h_x, h_y, Mesh );
 
         % linear equations
         N_u = A \ b;
@@ -56,6 +54,6 @@ function [ N_u ] = Poisson_2D_FD_rectangle_dirichlet( bx, by, N_x, N_y, Au, f, M
         fprintf('Error_L2_norm: %g',Error_L2)
         
 %         % error mesh
-%         error_mesh( Au, N_m, N_u, A_u, N_x, N_y, XX, YY, index_y, Mesh)
+        error_mesh( Au, N_m, N_u, A_u, N_x, N_y, XX, YY, index_y, Mesh)
               
 end
