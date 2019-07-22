@@ -13,13 +13,15 @@ heat equation:
 
 ### Finite Difference Methods
 > 
-- Replacing the dervatives by finite differences
+- Replacing the dervatives by finite differences(to do finite difference scheme)
 
   <div align=center><img src="https://latex.codecogs.com/svg.latex?u^k_t&space;=&space;\frac{u^{k&plus;1}-u^k}{\Delta&space;t}" title="u^k_t = \frac{u^{k+1}-u^k}{\Delta t}" /></div>
   
   <div align=center><img src="https://latex.codecogs.com/svg.latex?\begin{aligned}&space;u_{x&space;x}&space;&&space;\approx&space;\frac{u\left(x_{i-1},&space;y_{j}\right)-2&space;u\left(x_{i},&space;y_{j}\right)&plus;u\left(x_{i&plus;1},&space;y_{j}\right)}{h_{x}^{2}}&space;\\&space;u_{y&space;y}&space;&&space;\approx&space;\frac{u\left(x_{i},&space;y_{j-1}\right)-2&space;u\left(x_{i},&space;y_{j}\right)&plus;u\left(x_{i},&space;y_{j&plus;1}\right)}{h_{y}^{2}}&space;\end{aligned}" title="\begin{aligned} u_{x x} & \approx \frac{u\left(x_{i-1}, y_{j}\right)-2 u\left(x_{i}, y_{j}\right)+u\left(x_{i+1}, y_{j}\right)}{h_{x}^{2}} \\ u_{y y} & \approx \frac{u\left(x_{i}, y_{j-1}\right)-2 u\left(x_{i}, y_{j}\right)+u\left(x_{i}, y_{j+1}\right)}{h_{y}^{2}} \end{aligned}" /></div>
   
-- Taylor series  
+- Taylor series(to do error estimate)
+  <img src="https://latex.codecogs.com/svg.latex?f(x)=\frac{f\left(x_{0}\right)}{0&space;!}&plus;\frac{f^{\prime}\left(x_{0}\right)}{1&space;!}\left(x-x_{0}\right)&plus;\ldots&plus;\frac{f^{(n)}\left(x_{0}\right)}{n&space;!}\left(x-x_{0}\right)^{n}&plus;R_{n}(x)" title="f(x)=\frac{f\left(x_{0}\right)}{0 !}+\frac{f^{\prime}\left(x_{0}\right)}{1 !}\left(x-x_{0}\right)+\ldots+\frac{f^{(n)}\left(x_{0}\right)}{n !}\left(x-x_{0}\right)^{n}+R_{n}(x)" /></div>
+  <div align=center><img src="https://latex.codecogs.com/svg.latex?R_{n}(x)=\mathrm{o}\left[\left(x-x_{0}\right)^{n}\right]" title="R_{n}(x)=\mathrm{o}\left[\left(x-x_{0}\right)^{n}\right]" /></div>
 
 #### Example 1
 for the 1D heat problem:
