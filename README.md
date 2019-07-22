@@ -8,7 +8,7 @@ poisson equation:
 heat equation: 
 
 <div align=center><img src="https://latex.codecogs.com/svg.latex?u_t&space;-&space;\Delta&space;u&space;=&space;f" title="u_t - \Delta u = f" /></div>
-
+<hr>
 ### Basic idea
 #### Finite Difference Methods
 > 
@@ -33,6 +33,7 @@ with specific parameters:
 have the flowing result:
 <div align=center><img width="500" height="500" src="https://github.com/MatNoble/PDE_coding/blob/master/image/FD.png"/></div>  
 
+***
 #### Finite Element Methods
 > 
 - Integration by part
