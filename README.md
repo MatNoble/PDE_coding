@@ -8,9 +8,10 @@ poisson equation:
 heat equation: 
 
 <div align=center><img src="https://latex.codecogs.com/svg.latex?u_t&space;-&space;\Delta&space;u&space;=&space;f" title="u_t - \Delta u = f" /></div>
+
 <hr>
-### Basic idea
-#### Finite Difference Methods
+
+### Finite Difference Methods
 > 
 - Replacing the dervatives by finite differences
 
@@ -20,7 +21,7 @@ heat equation:
   
 - Taylor series  
 
-##### Example 1
+#### Example 1
 for the 1D heat problem:
 <div align=center><img src="https://latex.codecogs.com/svg.latex?\left\{\begin{array}{c}{u_{t}-&space;u_{x&space;x}=f(x,&space;t)\left(x_{1}<x<x_{2}\right)(t>0)}&space;\\&space;{u(x,&space;0)=g_{t}(x)\left(x_{1}<x<x_{2}\right)}&space;\\&space;{u\left(x_{1},&space;t\right)=g_{1}(t),&space;u\left(x_{2},&space;t\right)=g_{2}(t)(t>0)}\end{array}\right." title="\left\{\begin{array}{c}{u_{t}- u_{x x}=f(x, t)\left(x_{1}<x<x_{2}\right)(t>0)} \\ {u(x, 0)=g_{t}(x)\left(x_{1}<x<x_{2}\right)} \\ {u\left(x_{1}, t\right)=g_{1}(t), u\left(x_{2}, t\right)=g_{2}(t)(t>0)}\end{array}\right." /></div>
 
@@ -33,8 +34,9 @@ with specific parameters:
 have the flowing result:
 <div align=center><img width="500" height="500" src="https://github.com/MatNoble/PDE_coding/blob/master/image/FD.png"/></div>  
 
-***
-#### Finite Element Methods
+<hr>
+
+### Finite Element Methods
 > 
 - Integration by part
 - Variational 
