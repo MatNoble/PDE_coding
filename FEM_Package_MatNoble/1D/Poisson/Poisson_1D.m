@@ -1,7 +1,7 @@
 % One-dimensional Poisson equation
 function [N_s, error_max] = Poisson_1D(u, u_x, c, f, x1, xn, number_of_elements, p, basis_type, Gauss_type, Boundary_type)
 
-% x1, x2 £º left and right endpoints
+% x1, x2 ï¿½ï¿½ left and right endpoints
 % number of mesh elements
 % p : Degree of distortion
 % basis_type : 
@@ -82,6 +82,6 @@ function [N_s, error_max] = Poisson_1D(u, u_x, c, f, x1, xn, number_of_elements,
     error_max = max(abs(N_s - A_s));
 
     % plot
-    plot(Pb(1,:), 0, 'k*', Pb(1,:), N_s, 'ro', Pb(1,:), A_s, 'b.')
+    plot(Pb(1,:), 0, 'k*', Pb(1,:), N_s, 'ro', Pb(1,:), A_s, 'b.-')
     
 end
