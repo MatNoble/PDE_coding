@@ -49,6 +49,7 @@ have the flowing result:
 - Finite dimensional space approximates infinite dimensional space 
 
 <hr>
+
 ### Approximate functions
 Gibbs phenomenon
 <div align=center><img width="500" height="500" src="https://github.com/MatNoble/PDE_coding/blob/master/image/Gibbsphenomenon.png"/></div>
