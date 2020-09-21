@@ -1,4 +1,9 @@
 ## Using FDM or FEM solve poisson and heat equations in 1D and 2D
+
+## Landau–Lifshitz equation
+
+<div align=center><img width="500" height="500" src="https://github.com/MatNoble/PDE_coding/blob/master/image/lle.gif"/></div>
+
 ### Basic equations
 poisson equation: 
 
@@ -36,7 +41,7 @@ with specific parameters:
 <div align=center><img src="https://latex.codecogs.com/svg.latex?f(x,&space;t)=0" title="f(x, t)=0" /></div>
 
 have the flowing result:
-<div align=center><img width="500" height="500" src="https://github.com/MatNoble/PDE_coding/blob/master/image/FD.png"/></div>  
+<div align=center><img width="500" height="500" src="https://github.com/MatNoble/PDE_coding/blob/master/image/FD.png"/></div>
 
 <hr>
 
