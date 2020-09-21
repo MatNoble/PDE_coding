@@ -2,7 +2,7 @@
 
 ## Landau–Lifshitz equation
 
-<div align=center><img width="500" height="500" src="https://cdn.jsdelivr.net/gh/MatNoble/Images/lle.gif"/></div>
+![](https://cdn.jsdelivr.net/gh/MatNoble/Images/lle.gif)
 
 ### Basic equations
 poisson equation: 
