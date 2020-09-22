@@ -1,8 +1,14 @@
+## Some Result
+
+### Landau–Lifshitz equation
+
+<img src="/image/lle.gif?raw=true" width="300px">
+
+### Marker and Cell Methond for Stokes Equations
+
+<img src="/image/lle.gif?raw=true" width="300px">
+
 ## Using FDM or FEM solve poisson and heat equations in 1D and 2D
-
-## Landau–Lifshitz equation
-
-![](https://cdn.jsdelivr.net/gh/MatNoble/Images/lle.gif)
 
 ### Basic equations
 poisson equation: 
