@@ -2,11 +2,23 @@
 
 ### Landau–Lifshitz equation
 
+<img src="/image/LLEmodel.png?raw=true" width="600px">
+
 <img src="/image/lle.gif?raw=true" width="300px">
 
 ### Marker and Cell Methond for Stokes Equations
 
-<img src="/image/lle.gif?raw=true" width="300px">
+<img src="/image/MACmodel.png?raw=true" width="500px">
+
+<img src="/image/MAC0.png?raw=true" width="300px">
+
+<img src="/image/MAC1.png?raw=true" width="300px">
+
+<img src="/image/puv.png?raw=true" width="400px">
+
+<img src="/image/MAC2.png?raw=true" width="300px">
+
+<img src="/image/MAC3.png?raw=true" width="300px">
 
 ## Using FDM or FEM solve poisson and heat equations in 1D and 2D
 
