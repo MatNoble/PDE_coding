@@ -1,4 +1,4 @@
-## Some Result
+## Some Results
 
 ### Landau–Lifshitz equation
 
